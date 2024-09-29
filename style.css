@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Reem Kufi Fun", sans-serif;
+
+}
+
+:root {
+    --primaryColor: black;
+    --secondColor: #d6d6d6;
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: black;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar {
+    height: fit-content;
+    width: fit-content;
+    background-color: white;
+    margin-top: 20px;
+    position: fixed;
+    transform: translate(-50%, -0%);
+    left: 50%;
+    padding: 15px 50px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.075);
+    /* Change None If you dont Like Boxshadow */
+    border-radius: 30px;
+    top: 0%;
+    transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.navbar .img-navbar {
+    display: none;
+}
+
+.navbar nav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar nav ul {
+    list-style-type: none;
+    /* Menghilangkan bullet */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    /* Mengatur jarak antar elemen */
+
+}
+
+.button-toggle{
+    background-color: white;
+    padding: 5px 10px ;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    display: none;
+    top: 0;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.5s all;
+}
+
+.button-toggle:hover{
+    background-color: rgba(128, 128, 128, 0.205);
+}
+
+.button-toggle ion-icon{
+    position: relative;
+    top: 2px;
+}
+
+.navbar nav ul li {
+    position: relative;
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.navbar nav ul li a{
+    color : black;
+    text-decoration: none;
+}
+
+.navbar nav ul .logo {
+    display: block;
+    /* Awalnya disembunyikan */
+    opacity: 0%;
+    width: 0%;
+    margin-left: 0px;
+    margin-right: 0px;
+    transition: 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 !important;
+
+
+}
+
+.content-navbar {
+    height: fit-content;
+}
+
+.navbar nav ul .logo img {
+    width: 60px;
+    position: relative;
+}
+
+.navbar nav ul .logo.visible {
+    opacity: 100%;
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media only screen and (max-width: 650px) {
+    .navbar {
+        margin-top: 0px;
+        border-radius: 0px;
+        width: 100%;
+        height: 9%;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    .navbar.active{
+        height: 45%; /*Chnage If Bug*/
+    }
+
+    .navbar .img-navbar {
+        display: block;
+        width: 70px; /*change if bug*/
+    }
+
+    .content-navbar {
+        height: 100%;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+
+    .navbar nav ul .logo {
+        display: none;
+    }
+
+    .navbar nav ul .logo.visible {
+        opacity: 0%;
+        width: 0%;
+        display: none;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar nav ul {
+        list-style-type: none;
+        /* Menghilangkan bullet */
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+    .button-toggle{
+        display:block;
+    }
+}
+
+
+
+
+/* Delete This Class */
+.content {
+    width: 100%;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: grey;
+    font-size: 40px;
+    align-items: center;
+}
